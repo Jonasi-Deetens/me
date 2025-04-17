@@ -1,29 +1,19 @@
 "use client";
 
 import NavigationSidebar from "../components/Navbar/NavigationSidebar";
-
+import Profile from "../components/Page/Profile";
+import Header from "../components/Page/Header";
 const HomePage = () => {
   return (
-    <div
-      className="relative w-full min-h-screen
-        bg-gray-50 dark:bg-gray-950
-        text-gray-900 dark:text-white 
-        overflow-hidden transition-colors duration-500"
-    >
+    <div className="flex">
       <NavigationSidebar />
 
-      <main className="ml-24 lg:ml-72 p-8">
-        <section className="max-w-4xl mx-auto">
-          <h1 className="text-4xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
-            Welcome, I'm Jonasi Deetens
-          </h1>
+      <main className="p-8 w-full">
+        <Header title="Jonasi Deetens" subtitle="CV" gradient={false} />
+        <section className="mx-auto max-w-6xl">
+          <Profile />
 
-          <div className="prose dark:prose-invert prose-lg">
-            <p className="text-xl text-gray-700 dark:text-gray-300 mb-6">
-              Full Stack Developer passionate about creating elegant solutions
-              to complex problems
-            </p>
-
+          <div className="prose dark:prose-invert prose-lg mt-8">
             <div className="bg-white/10 dark:bg-white/5 rounded-2xl p-6 backdrop-blur-sm border border-gray-200/20 dark:border-white/10">
               <h2 className="text-2xl font-semibold mb-4">About Me</h2>
               <p className="mb-4">
@@ -37,7 +27,7 @@ const HomePage = () => {
                 projects, writing technical blog posts, or exploring new
                 development tools and frameworks.
               </p>
-              <div className="flex gap-4 mt-6">
+              <div className="flex gap-4 mt-6 flex-wrap">
                 <span className="px-3 py-1 bg-blue-500/10 text-blue-500 dark:text-blue-400 rounded-full text-sm">
                   React
                 </span>

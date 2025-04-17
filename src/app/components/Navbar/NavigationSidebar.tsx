@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 import NavLink from "./NavLink";
 import { useTheme } from "next-themes";
-import { Button } from "../../../components/Button";
+import { Button } from "../../../components/buttons/Button";
 import classNames from "classnames";
 import { signOut } from "next-auth/react";
 import { useSession } from "next-auth/react";
@@ -42,7 +42,7 @@ const NavigationSidebar = () => {
       bg-white/90 dark:bg-black/90
       backdrop-blur-lg shadow-lg
       border-r border-gray-200/50 dark:border-white/10
-      py-8 px-6 flex flex-col gap-6
+      py-8 px-3 flex flex-col gap-6
       transition-all duration-200 ease-in-out
       ${isCollapsed ? "w-24" : "w-72"}
       relative z-50`}
@@ -51,10 +51,9 @@ const NavigationSidebar = () => {
         variant="sidebar"
         size="icon"
         onClick={() => setIsCollapsed(!isCollapsed)}
-        className="absolute -right-5 top-13 transform -translate-y-1/2
-        hover:bg-gray-100 dark:hover:bg-white/10 
+        className="absolute -right-5 top-30 transform -translate-y-1/2
         transition-all rounded-full 
-        bg-white/90 dark:bg-black/90"
+        bg-white/90 dark:bg-black/90 hover:cursor-pointer"
         aria-label="Toggle sidebar"
       >
         {isCollapsed ? (
@@ -68,7 +67,7 @@ const NavigationSidebar = () => {
         <CircleUserRound
           className={classNames(
             "text-gray-800 dark:text-gray-200 transition-colors",
-            isCollapsed ? "w-10 h-10" : "w-16 h-16"
+            isCollapsed ? "w-8 h-8" : "w-16 h-16"
           )}
         />
         {!isCollapsed && (
@@ -98,7 +97,7 @@ const NavigationSidebar = () => {
             <span
               className={`group-hover:translate-x-1 transition-transform ${isCollapsed ? "hidden" : "block"}`}
             >
-              Home
+              Profile
             </span>
           </div>
         </NavLink>
