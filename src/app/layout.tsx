@@ -4,9 +4,7 @@ import { TRPCProvider } from "@/utils/trpcProvider";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { SessionProvider } from "next-auth/react";
-import { CharacterProvider } from "./providers/CharacterProvider";
 import ClientThemeProvider from "./providers/ClientThemeProvider";
-import { MapProvider } from "./providers/MapProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,11 +18,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <SessionProvider>
           <TRPCProvider>
-            <CharacterProvider>
-              <MapProvider>
-                <ClientThemeProvider>{children}</ClientThemeProvider>
-              </MapProvider>
-            </CharacterProvider>
+            <ClientThemeProvider>{children}</ClientThemeProvider>
           </TRPCProvider>
         </SessionProvider>
       </body>

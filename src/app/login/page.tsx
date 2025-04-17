@@ -35,14 +35,14 @@ const LoginPage = () => {
     });
 
     if (res?.ok) {
-      router.push("/game-menu");
+      router.push("/home");
     } else {
       setError("Invalid email or password");
     }
   };
 
   useEffect(() => {
-    if (session?.user) router.push("/game-menu");
+    if (session?.user) router.push("/home");
   });
 
   return (
