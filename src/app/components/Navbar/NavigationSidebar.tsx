@@ -90,7 +90,9 @@ const NavigationSidebar = () => {
         </p>
 
         <NavLink href="/home">
-          <div className="flex items-center gap-3 group">
+          <div
+            className={`flex items-center ${isCollapsed ? "justify-center" : "gap-3"} group`}
+          >
             <Home
               className={`group-hover:scale-110 transition-transform w-5 h-5`}
             />
@@ -103,7 +105,9 @@ const NavigationSidebar = () => {
         </NavLink>
 
         <NavLink href="/profile">
-          <div className="flex items-center gap-3 group">
+          <div
+            className={`flex items-center ${isCollapsed ? "justify-center" : "gap-3"} group`}
+          >
             <User
               className={`group-hover:scale-110 transition-transform w-5 h-5`}
             />
@@ -116,7 +120,9 @@ const NavigationSidebar = () => {
         </NavLink>
 
         <NavLink href="/experience">
-          <div className="flex items-center gap-3 group">
+          <div
+            className={`flex items-center ${isCollapsed ? "justify-center" : "gap-3"} group`}
+          >
             <Briefcase
               className={`group-hover:scale-110 transition-transform w-5 h-5`}
             />
@@ -129,7 +135,9 @@ const NavigationSidebar = () => {
         </NavLink>
 
         <NavLink href="/projects">
-          <div className="flex items-center gap-3 group">
+          <div
+            className={`flex items-center ${isCollapsed ? "justify-center" : "gap-3"} group`}
+          >
             <Code
               className={`group-hover:scale-110 transition-transform w-5 h-5`}
             />
@@ -142,7 +150,9 @@ const NavigationSidebar = () => {
         </NavLink>
 
         <NavLink href="/resume">
-          <div className="flex items-center gap-3 group">
+          <div
+            className={`flex items-center ${isCollapsed ? "justify-center" : "gap-3"} group`}
+          >
             <FileText
               className={`group-hover:scale-110 transition-transform w-5 h-5`}
             />
@@ -155,7 +165,9 @@ const NavigationSidebar = () => {
         </NavLink>
 
         <NavLink href="/contact">
-          <div className="flex items-center gap-3 group">
+          <div
+            className={`flex items-center ${isCollapsed ? "justify-center" : "gap-3"} group`}
+          >
             <Mail
               className={`group-hover:scale-110 transition-transform w-5 h-5`}
             />
@@ -195,7 +207,7 @@ const NavigationSidebar = () => {
           size="icon"
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           className="hover:bg-gray-100 dark:hover:bg-white/10 
-            transition-all rounded-xl hover:scale-105
+            transition-all rounded-xl hover:scale-105 ml-2
             focus:outline-none focus:ring-2 focus:ring-gray-300 dark:focus:ring-white/20"
           aria-label="Toggle theme"
         >
