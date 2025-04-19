@@ -1,10 +1,11 @@
-import { Button } from "../../../components/buttons/Button";
+import { Button } from '../../../components/buttons/Button';
 
 interface HeaderProps {
   title: string;
   subtitle?: string;
   gradient?: boolean;
   children?: React.ReactNode;
+  icon?: React.ReactNode;
   onBack?: () => void;
   actionButton?: {
     label: string;
@@ -17,6 +18,7 @@ const Header = ({
   subtitle,
   gradient = true,
   children,
+  icon,
   onBack,
   actionButton,
 }: HeaderProps) => {
@@ -25,12 +27,7 @@ const Header = ({
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-3">
           {onBack && (
-            <Button
-              onClick={onBack}
-              variant="ghost"
-              size="icon"
-              className="rounded-full"
-            >
+            <Button onClick={onBack} variant="ghost" size="icon" className="rounded-full">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -46,12 +43,13 @@ const Header = ({
               </svg>
             </Button>
           )}
+          {icon && <div className="flex items-center gap-2">{icon}</div>}
           <div className="flex items-center gap-2">
             <h1
               className={`text-xl font-bold text-gray-700 dark:text-gray-100  ${
                 gradient
-                  ? "bg-gradient-to-r from-indigo-600 via-purple-500 to-pink-500 bg-clip-text text-transparent"
-                  : ""
+                  ? 'bg-gradient-to-r from-indigo-600 via-purple-500 to-pink-500 bg-clip-text text-transparent'
+                  : ''
               }`}
             >
               {title}
@@ -64,9 +62,7 @@ const Header = ({
           </div>
         </div>
 
-        {actionButton && (
-          <Button onClick={actionButton.onClick}>{actionButton.label}</Button>
-        )}
+        {actionButton && <Button onClick={actionButton.onClick}>{actionButton.label}</Button>}
       </div>
 
       <div className="h-px bg-gray-200 dark:bg-gray-700 mb-6" />

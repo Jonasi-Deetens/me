@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 import {
   ChevronLeft,
   ChevronRight,
@@ -14,13 +14,13 @@ import {
   Home,
   CircleUserRound,
   LogOut,
-} from "lucide-react";
-import NavLink from "./NavLink";
-import { useTheme } from "next-themes";
-import { Button } from "../../../components/buttons/Button";
-import classNames from "classnames";
-import { signOut } from "next-auth/react";
-import { useSession } from "next-auth/react";
+} from 'lucide-react';
+import NavLink from './NavLink';
+import { useTheme } from 'next-themes';
+import { Button } from '../../../components/buttons/Button';
+import classNames from 'classnames';
+import { signOut } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 
 const NavigationSidebar = () => {
   const { theme, setTheme } = useTheme();
@@ -33,7 +33,7 @@ const NavigationSidebar = () => {
   }, []);
 
   const handleLogout = async () => {
-    await signOut({ callbackUrl: "/login" });
+    await signOut({ callbackUrl: '/login' });
   };
 
   return (
@@ -44,7 +44,7 @@ const NavigationSidebar = () => {
       border-r border-gray-200/50 dark:border-white/10
       py-8 px-3 flex flex-col gap-6
       transition-all duration-200 ease-in-out
-      ${isCollapsed ? "w-24" : "w-72"}
+      ${isCollapsed ? 'w-24' : 'w-72'}
       relative z-50`}
     >
       <Button
@@ -56,63 +56,36 @@ const NavigationSidebar = () => {
         bg-white/90 dark:bg-black/90 hover:cursor-pointer"
         aria-label="Toggle sidebar"
       >
-        {isCollapsed ? (
-          <ChevronRight className="w-4 h-4" />
-        ) : (
-          <ChevronLeft className="w-4 h-4" />
-        )}
+        {isCollapsed ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
       </Button>
 
       <div className="flex flex-col items-center">
         <CircleUserRound
           className={classNames(
-            "text-gray-800 dark:text-gray-200 transition-colors",
-            isCollapsed ? "w-8 h-8" : "w-16 h-16"
+            'text-gray-800 dark:text-gray-200 transition-colors',
+            isCollapsed ? 'w-8 h-8' : 'w-16 h-16',
           )}
         />
         {!isCollapsed && (
           <div className="text-center mt-4 animate-fadeIn">
-            <h2 className="font-semibold text-gray-900 dark:text-white">
-              Jonasi Deetens
-            </h2>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              Full Stack Developer
-            </p>
+            <h2 className="font-semibold text-gray-900 dark:text-white">Jonasi Deetens</h2>
+            <p className="text-sm text-gray-600 dark:text-gray-400">Full Stack Developer</p>
           </div>
         )}
       </div>
 
       <nav className="flex-1 flex flex-col gap-3">
         <p
-          className={`font-medium text-gray-500 dark:text-gray-400 mb-2 ${isCollapsed ? "text-xs text-center" : "text-sm px-4"}`}
+          className={`font-medium text-gray-500 dark:text-gray-400 mb-2 ${isCollapsed ? 'text-xs text-center' : 'text-sm px-4'}`}
         >
           Menu
         </p>
 
         <NavLink href="/home">
-          <div
-            className={`flex items-center ${isCollapsed ? "justify-center" : "gap-3"} group`}
-          >
-            <Home
-              className={`group-hover:scale-110 transition-transform w-5 h-5`}
-            />
+          <div className={`flex items-center ${isCollapsed ? 'justify-center' : 'gap-3'} group`}>
+            <User className={`group-hover:scale-110 transition-transform w-5 h-5`} />
             <span
-              className={`group-hover:translate-x-1 transition-transform ${isCollapsed ? "hidden" : "block"}`}
-            >
-              Profile
-            </span>
-          </div>
-        </NavLink>
-
-        <NavLink href="/profile">
-          <div
-            className={`flex items-center ${isCollapsed ? "justify-center" : "gap-3"} group`}
-          >
-            <User
-              className={`group-hover:scale-110 transition-transform w-5 h-5`}
-            />
-            <span
-              className={`group-hover:translate-x-1 transition-transform ${isCollapsed ? "hidden" : "block"}`}
+              className={`group-hover:translate-x-1 transition-transform ${isCollapsed ? 'hidden' : 'block'}`}
             >
               Profile
             </span>
@@ -120,14 +93,10 @@ const NavigationSidebar = () => {
         </NavLink>
 
         <NavLink href="/experience">
-          <div
-            className={`flex items-center ${isCollapsed ? "justify-center" : "gap-3"} group`}
-          >
-            <Briefcase
-              className={`group-hover:scale-110 transition-transform w-5 h-5`}
-            />
+          <div className={`flex items-center ${isCollapsed ? 'justify-center' : 'gap-3'} group`}>
+            <Briefcase className={`group-hover:scale-110 transition-transform w-5 h-5`} />
             <span
-              className={`group-hover:translate-x-1 transition-transform ${isCollapsed ? "hidden" : "block"}`}
+              className={`group-hover:translate-x-1 transition-transform ${isCollapsed ? 'hidden' : 'block'}`}
             >
               Experience
             </span>
@@ -135,14 +104,10 @@ const NavigationSidebar = () => {
         </NavLink>
 
         <NavLink href="/projects">
-          <div
-            className={`flex items-center ${isCollapsed ? "justify-center" : "gap-3"} group`}
-          >
-            <Code
-              className={`group-hover:scale-110 transition-transform w-5 h-5`}
-            />
+          <div className={`flex items-center ${isCollapsed ? 'justify-center' : 'gap-3'} group`}>
+            <Code className={`group-hover:scale-110 transition-transform w-5 h-5`} />
             <span
-              className={`group-hover:translate-x-1 transition-transform ${isCollapsed ? "hidden" : "block"}`}
+              className={`group-hover:translate-x-1 transition-transform ${isCollapsed ? 'hidden' : 'block'}`}
             >
               Projects
             </span>
@@ -150,14 +115,10 @@ const NavigationSidebar = () => {
         </NavLink>
 
         <NavLink href="/resume">
-          <div
-            className={`flex items-center ${isCollapsed ? "justify-center" : "gap-3"} group`}
-          >
-            <FileText
-              className={`group-hover:scale-110 transition-transform w-5 h-5`}
-            />
+          <div className={`flex items-center ${isCollapsed ? 'justify-center' : 'gap-3'} group`}>
+            <FileText className={`group-hover:scale-110 transition-transform w-5 h-5`} />
             <span
-              className={`group-hover:translate-x-1 transition-transform ${isCollapsed ? "hidden" : "block"}`}
+              className={`group-hover:translate-x-1 transition-transform ${isCollapsed ? 'hidden' : 'block'}`}
             >
               Resume
             </span>
@@ -165,14 +126,10 @@ const NavigationSidebar = () => {
         </NavLink>
 
         <NavLink href="/contact">
-          <div
-            className={`flex items-center ${isCollapsed ? "justify-center" : "gap-3"} group`}
-          >
-            <Mail
-              className={`group-hover:scale-110 transition-transform w-5 h-5`}
-            />
+          <div className={`flex items-center ${isCollapsed ? 'justify-center' : 'gap-3'} group`}>
+            <Mail className={`group-hover:scale-110 transition-transform w-5 h-5`} />
             <span
-              className={`group-hover:translate-x-1 transition-transform ${isCollapsed ? "hidden" : "block"}`}
+              className={`group-hover:translate-x-1 transition-transform ${isCollapsed ? 'hidden' : 'block'}`}
             >
               Contact
             </span>
@@ -188,11 +145,9 @@ const NavigationSidebar = () => {
             text-sm transition-all rounded-xl focus:outline-none focus:ring-2 focus:ring-gray-300 dark:focus:ring-white/20"
           >
             <div className="flex items-center gap-3 group">
-              <LogOut
-                className={`group-hover:scale-110 transition-transform w-5 h-5`}
-              />
+              <LogOut className={`group-hover:scale-110 transition-transform w-5 h-5`} />
               <span
-                className={`group-hover:translate-x-1 transition-transform ${isCollapsed ? "hidden" : "block"}`}
+                className={`group-hover:translate-x-1 transition-transform ${isCollapsed ? 'hidden' : 'block'}`}
               >
                 Sign Out
               </span>
@@ -205,13 +160,13 @@ const NavigationSidebar = () => {
         <Button
           variant="ghost"
           size="icon"
-          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
           className="hover:bg-gray-100 dark:hover:bg-white/10 
             transition-all rounded-xl hover:scale-105 ml-2
             focus:outline-none focus:ring-2 focus:ring-gray-300 dark:focus:ring-white/20"
           aria-label="Toggle theme"
         >
-          {mounted && theme === "dark" ? (
+          {mounted && theme === 'dark' ? (
             <Sun className="w-5 h-5 text-yellow-400 hover:text-yellow-500 transition-colors" />
           ) : (
             <Moon className="w-5 h-5 text-gray-700 hover:text-gray-900 transition-colors" />
